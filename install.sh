@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
-# Создаем файл для логов ошибок
-LOG_FILE="install_errors.log"
+LOG_FILE="install.log"
 > "$LOG_FILE"
 
 echo "Administrator privileges required..."

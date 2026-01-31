@@ -2,6 +2,6 @@
 ^install\.sh$
 ^preinstall\.sh$
 ^postinstall\.sh$
-^install_errors\.log$
+^install\.log$
 ^\.git/
 ^\.gitignore$

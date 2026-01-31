@@ -3,3 +3,6 @@
 *.old
 *.swp
 *~
+
+# Misc
+install.log
