@@ -1,0 +1,1 @@
+Minimalistic config for app launcher and custom *.desktop files to hide unnecessary apps.

@@ -1,0 +1,1 @@
+Minimalistic config for lightweight notification daemon.

@@ -1,0 +1,3 @@
+Config for system monitoring tool with preconfigured Cattpuccin Mocha theme and Vim keybinds.
+
+Theme: https://github.com/catppuccin/btop

@@ -1,0 +1,1 @@
+Configs for custom shell. Installs with Oh-My-Zsh, plugins, useful aliases and some keybinds.

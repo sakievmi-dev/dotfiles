@@ -1,0 +1,96 @@
+// === GENERAL ===
+window-rule { // Screen capture black-list
+	// Password managers
+	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+	match app-id=r#"^org\.gnome\.World\.Secrets$"#
+	// Authenticators
+	match app-id="proton-authenticator"
+	// Private messengers
+	match app-id="signal"
+    
+	block-out-from "screen-capture"
+}
+
+window-rule { // Floating window
+	// Picture in picture
+	match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+	// Misc
+	match title="Choose an Application"
+
+	open-floating true
+}
+
+window-rule { // Fullscreen windows
+	match app-id="osu!"
+
+	open-fullscreen true
+}
+
+// === PER APPLICATION ===
+// Kdenline
+window-rule {
+	match title="Kdenlive"
+
+	open-floating true
+
+	focus-ring {
+	    off
+	}
+}
+
+// Steam
+window-rule { // Non-"steam" windows
+	match app-id="steam"
+	exclude title="Steam"
+    
+	open-floating true
+}
+window-rule { // Friends list
+	match app-id="steam" title="Friends List"
+
+	open-floating false
+	default-column-width { fixed 375; }
+}
+
+// Keypunch
+window-rule {
+	match title="Keypunch"
+	match app-id="dev.bragefuglseth.Keypunch"
+
+	default-column-width	{ fixed 800; }
+	default-window-height	{ fixed 400; }
+    
+	open-floating true
+}
+
+// Telegram
+window-rule { // Media viewer
+	match app-id="org.telegram.desktop" title="Media viewer"
+
+	open-floating true
+
+	focus-ring {
+		off
+	}
+}
+window-rule {
+	match app-id="org.telegram.desktop"
+
+	default-column-width { fixed 550; }
+}
+
+// pcmanfm-qt
+window-rule {
+	match app-id="pcmanfm-qt" title="Preferences"
+	match app-id="pcmanfm-qt" title="Search Files"
+	match app-id="pcmanfm-qt" title="Execute file"
+    
+	open-floating true
+}
+
+// ProtonUp-Qt
+window-rule {
+	match app-id="net.davidotek.pupgui2"
+    
+	open-floating true
+}

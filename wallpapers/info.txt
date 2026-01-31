@@ -1,0 +1,3 @@
+Wallpapers. Just .png files. Installs swww and applies default wallpaper.
+
+All credits listed in ~/.local/share/wallpapers/CREDITS.txt

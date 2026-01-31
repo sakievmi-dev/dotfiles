@@ -1,0 +1,11 @@
+include "style.kdl" // Edit this if you want change cursor/csd/focus-rind and etc.
+include "colors.kdl"
+include "input.kdl"
+include "monitors.kdl"
+include "startup.kdl"
+include "animations.kdl"
+include "binds.kdl"
+include "layout.kdl"
+include "rules.kdl"
+include "misc.kdl"
+include "env.kdl"

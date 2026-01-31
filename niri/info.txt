@@ -1,0 +1,1 @@
+Scripts and configs for WM. Install with stow packages: fuzzel, kitty and waybar.

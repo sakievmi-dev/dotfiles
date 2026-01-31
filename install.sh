@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Создаем файл для логов ошибок
+LOG_FILE="install_errors.log"
+> "$LOG_FILE"
+
+echo "Administrator privileges required..."
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+choices=()
+for d in */; do
+    pkg=${d%/}
+    [[ "$pkg" == .* ]] && continue
+    desc=$(head -n 1 "$pkg/info.txt" 2>/dev/null || echo "No description")
+    choices+=("$pkg | $desc")
+done
+
+selected=$(printf "%s\n" "${choices[@]}" | gum choose --no-limit --header="Select packages" --height=15)
+[ -z "$selected" ] && exit 0
+
+echo "$selected" | while read -r line; do
+    package=$(echo "$line" | awk -F ' | ' '{print $1}')
+
+    if gum spin --spinner dot --title "Installing $package (check $LOG_FILE for details)..." -- bash -c "
+        set -e
+        # 1. PREINSTALL
+        if [[ -f '$package/preinstall.sh' ]]; then
+            chmod +x '$package/preinstall.sh'
+            ./'$package/preinstall.sh' >> '$LOG_FILE' 2>&1
+        fi
+
+        # 2. STOW
+        stow -R --ignore="info.txt" --ignore="preinstall.sh" --ignore="postinstall.sh" '$package' --adopt >> '$LOG_FILE' 2>&1
+
+        # 3. POSTINSTALL
+        if [[ -f '$package/postinstall.sh' ]]; then
+            chmod +x '$package/postinstall.sh'
+            ./'$package/postinstall.sh' >> '$LOG_FILE' 2>&1
+        fi
+    "; then
+        echo "$package: Done"
+    else
+        echo "$package: FAILED. See $LOG_FILE for details."
+        if gum confirm "Show error log for $package?"; then
+            gum pager < "$LOG_FILE"
+        fi
+    fi
+done
+
+gum style --foreground 2 --border-foreground 2 --border double --align center --width 50 --margin "1 2" --padding "1 2" "Installation Complete!"

@@ -1,0 +1,4 @@
+[options]
+background = 1e1e2e
+overlay = false
+scaling_mode = shrink

@@ -1,0 +1,107 @@
+/* Base backgrounds */
+@define-color crust       #11111b;
+@define-color mantle      #181825;
+@define-color black       #1e1e2e; /* Base */
+@define-color bg2         #313244; /* Surface 0 */
+@define-color surface0    #313244;
+@define-color surface1    #45475a;
+@define-color surface2    #585b70;
+
+/* Overlays */
+@define-color overlay0    #6c7086;
+@define-color brgray      #7f849c; /* Overlay 0 */
+@define-color overlay1    #7f849c;
+@define-color overlay2    #9399b2;
+
+/* Text */
+@define-color white       #cdd6f4; /* Text */
+@define-color subtext1    #bac2de;
+@define-color subtext0    #a6adc8;
+
+/* Core colors */
+@define-color red         #f38ba8;
+@define-color green       #a6e3a1;
+@define-color yellow      #f9e2af;
+@define-color blue        #89b4fa;
+@define-color purple      #cba6f7;
+@define-color aqua        #94e2d5;
+@define-color gray        #585b70;
+
+/* Alternate */
+@define-color brred       #eba0ac; /* Maroon */
+@define-color brgreen     #94e2d5; /* Teal */
+@define-color bryellow    #fab387; /* Peach */
+@define-color brblue      #89dceb; /* Sky */
+@define-color brpurple    #f5c2e7; /* Pink */
+@define-color braqua      #89dceb; /* Sky */
+
+/* Extended accents */
+@define-color rosewater   #f5e0dc;
+@define-color flamingo    #f2cdcd;
+@define-color pink        #f5c2e7;
+@define-color mauve       #cba6f7;
+@define-color lavender    #b4befe;
+@define-color peach       #fab387;
+@define-color maroon      #eba0ac;
+@define-color teal        #94e2d5;
+@define-color sky         #89dceb;
+@define-color sapphire    #74c7ec;
+
+/* Semantic */
+@define-color success     #a6e3a1;
+@define-color warning     #f9e2af;
+@define-color error       #f38ba8;
+@define-color info        #89b4fa;
+
+/* =========== 
+THEME
+=========== */
+/* Bar */
+@define-color bar-color		@black;
+
+/* Text */
+@define-color text-light	@white;
+@define-color text-dark		@black;
+
+/* Widgets */
+@define-color pulseaudio	@brpurple;
+@define-color pulseaudio-text	@text-dark;
+@define-color network		@purple;
+@define-color network-text	@text-dark;
+@define-color memory		@braqua;
+@define-color memory-text	@text-dark;
+@define-color cpu		@green;
+@define-color cpu-text		@text-dark;
+@define-color temperature	@brgreen;
+@define-color temperature-text	@text-dark;
+@define-color battery		@aqua;
+@define-color battery-text	@text-dark;
+@define-color language		@bryellow;
+@define-color language-text	@text-dark;
+@define-color date		@black;
+@define-color date-text		@text-light;
+@define-color time		@white;
+@define-color time-text		@text-dark;
+@define-color tray		@date;
+
+/* Workspaces */
+@define-color workspace-focused		@lavender;
+@define-color workspace-unfocused	@bg2;
+@define-color workspace-inactive	@purple;
+@define-color workspace-background	@workspace-unfocused;
+@define-color workspace-light-text	@text-light;
+@define-color workspace-dark-text	@text-dark;
+@define-color workspace-hovered		@black;
+@define-color workspace-text-hovered	@text-light;
+
+/* Tooltip */
+@define-color tooltip-background	@black;
+@define-color tooltip-border		@lavender;
+@define-color tooltip-text		@text-light;
+
+/* Active window */
+@define-color window-text	@text-light;
+
+/* Misc */
+@define-color warning	@bryellow;
+

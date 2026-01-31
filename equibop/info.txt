@@ -1,0 +1,3 @@
+Fork of Vesktop (Alternative Discord client) with preinstalled Cattpuccin Mocha theme. You should activate it manually.
+
+Theme: https://github.com/catppuccin/discord

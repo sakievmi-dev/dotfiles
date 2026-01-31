@@ -1,0 +1,5 @@
+# Backups & Temp
+*.bak
+*.old
+*.swp
+*~

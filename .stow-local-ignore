@@ -1,0 +1,7 @@
+^info\.txt$
+^install\.sh$
+^preinstall\.sh$
+^postinstall\.sh$
+^install_errors\.log$
+^\.git/
+^\.gitignore$

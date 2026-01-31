@@ -1,0 +1,14 @@
+prefer-no-csd
+
+layout {
+	focus-ring {
+		width 2
+	}
+}
+
+cursor {
+	xcursor-theme "Bibata-Modern-Classic"
+	xcursor-size 32
+
+	hide-after-inactive-ms 10000
+}

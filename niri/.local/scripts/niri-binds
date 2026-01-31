@@ -1,0 +1,33 @@
+#!/bin/bash
+
+MENU=$(
+  awk '
+    /^[[:space:]]*\/\// { next }
+    /hotkey-overlay-title=/ {
+      line = $0
+
+      sub(/[[:space:]]*\{.*/, "", line)
+
+      if (match(line, /hotkey-overlay-title="([^"]+)"/, m)) {
+        title = m[1]
+      } else {
+        next
+      }
+
+      sub(/[[:space:]]+hotkey-overlay-title="[^"]*"/, "", line)
+      gsub(/[[:space:]]+[a-zA-Z0-9_-]+=[^[:space:]]+/, "", line)
+
+      sub(/^[[:space:]]+/, "", line)
+      sub(/[[:space:]]+$/, "", line)
+
+      print line "|" title
+    }
+  ' ~/.config/niri/binds.kdl \
+  | sort -t '|' -k2,2 \
+  | column -t -s '|' -o '  │  '
+)
+
+echo "$MENU" | fuzzel --dmenu \
+  --width=50 \
+  --lines=15 \
+  --prompt="󰌌  "

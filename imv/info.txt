@@ -1,0 +1,1 @@
+Config for minimalistic image viewer. Only changes colors.
