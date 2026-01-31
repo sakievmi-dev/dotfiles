@@ -8,6 +8,10 @@ echo "Administrator privileges required..."
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Install all dependencies
+gum spin --spinner dot --title "Updating system..." -- bash -c "sudo pacman -Syu --noconfirm >> '$LOG_FILE' 2>&1"
+gum spin --spinner dot --title "Installing base dependencies..." -- bash -c "sudo pacman -S --needed --noconfirm base-devel git stow gum >> '$LOG_FILE' 2>&1"
+
 # Install yay if not found
 install_yay() {
     YAY_TMP=$(mktemp -d)
