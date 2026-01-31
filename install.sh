@@ -36,6 +36,7 @@ if ! command -v yay &> /dev/null; then
     fi
 fi
 
+# Get all stow packages
 choices=()
 for d in */; do
     pkg=${d%/}
@@ -47,21 +48,22 @@ done
 selected=$(printf "%s\n" "${choices[@]}" | gum choose --no-limit --header="Select packages" --height=15)
 [ -z "$selected" ] && exit 0
 
+# Main loop
 echo "$selected" | while read -r line; do
     package=$(echo "$line" | awk -F ' | ' '{print $1}')
 
     if gum spin --spinner dot --title "Installing $package (check $LOG_FILE for details)..." -- bash -c "
         set -e
-        # 1. PREINSTALL
+        # Preinstall
         if [[ -f '$package/preinstall.sh' ]]; then
             chmod +x '$package/preinstall.sh'
             ./'$package/preinstall.sh' >> '$LOG_FILE' 2>&1
         fi
 
-        # 2. STOW
+        # Stow
         stow -R --ignore="info.txt" --ignore="preinstall.sh" --ignore="postinstall.sh" '$package' --adopt >> '$LOG_FILE' 2>&1
 
-        # 3. POSTINSTALL
+        # Postinstall
         if [[ -f '$package/postinstall.sh' ]]; then
             chmod +x '$package/postinstall.sh'
             ./'$package/postinstall.sh' >> '$LOG_FILE' 2>&1
@@ -76,4 +78,5 @@ echo "$selected" | while read -r line; do
     fi
 done
 
+# Complete message
 gum style --foreground 2 --border-foreground 2 --border double --align center --width 50 --margin "1 2" --padding "1 2" "Installation Complete!"
