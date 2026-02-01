@@ -6,7 +6,6 @@ ZSH=/usr/share/oh-my-zsh/
 plugins=(
     git
     extract
-    zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
