@@ -50,6 +50,9 @@ binds {
 
     Mod+U	hotkey-overlay-title="Workspace Down" { focus-workspace-down; }
     Mod+I	hotkey-overlay-title="Workspace Up"   { focus-workspace-up; }
+
+    Mod+Ctrl+U hotkey-overlay-title="Move Window to Workspace Down" { move-window-to-workspace-down; }
+    Mod+Ctrl+I hotkey-overlay-title="Move Window to Workspace Up"   { move-window-to-workspace-up; }
     
     Mod+1 hotkey-overlay-title="Switch to Workspace 1" { focus-workspace 1; }
     Mod+2 hotkey-overlay-title="Switch to Workspace 2" { focus-workspace 2; }
