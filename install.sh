@@ -65,6 +65,21 @@ install_stow_package() {
     "
 }
 
+# ===
+# MAIN INSTALLATION LOGIC
+# ===
+
+# Install all core stow packages
+if [[ -f "core_pkgs.txt" ]]; then
+	echo "Installing core components..."
+
+	while read -r line; do
+		if [[ -d "$line" ]]; then
+			install_stow_package "$line" && echo "$line: Done" || echo "Core $line: FAILED"
+		fi
+	done < core_pkgs.txt
+fi
+
 # Get all stow packages
 choices=()
 for d in */; do
