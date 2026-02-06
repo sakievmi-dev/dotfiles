@@ -1,0 +1,10 @@
+dunst
+fastfetch
+fuzzel
+icons
+kitty
+niri
+wallpapers
+waybar
+yazi
+zsh
