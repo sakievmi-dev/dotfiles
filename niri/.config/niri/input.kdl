@@ -11,7 +11,4 @@ input {
 	}
 	focus-follows-mouse
 	warp-mouse-to-focus
-	// tablet {
-	// 	off
-	// }
 }
