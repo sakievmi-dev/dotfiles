@@ -74,53 +74,42 @@ if [[ -f "core_pkgs.txt" ]]; then
 	echo "Installing core components..."
 
 	while read -r line; do
-		if [[ -d "$line" ]]; then
-			install_stow_package "$line" && echo "$line: Done" || echo "Core $line: FAILED"
-		fi
+		install_stow_package "$line" && echo "$line: Done" || echo "Core $line: FAILED"
 	done < core_pkgs.txt
 fi
 
-# Get all stow packages
-choices=()
-for d in */; do
-    pkg=${d%/}
-    [[ "$pkg" == .* ]] && continue
-    desc=$(head -n 1 "$pkg/info.txt" 2>/dev/null || echo "No description")
-    choices+=("$pkg | $desc")
-done
+# Extra packages logic
+install_extra_stow_pkgs(){
+	choices=()
 
-selected=$(printf "%s\n" "${choices[@]}" | gum choose --no-limit --header="Select packages" --height=15)
-[ -z "$selected" ] && exit 0
+	if [[ -f "extra_pkgs.txt" ]]; then
+		while read -r line; do
+			desc=$(head -n 1 "$line/info.txt" 2>/dev/null || echo "No description")
+			choices+=("$line | $desc")
+		done < extra_pkgs.txt
+	fi
 
-# Main loop
-echo "$selected" | while read -r line; do
-    package=$(echo "$line" | awk -F ' | ' '{print $1}')
+	selected=$(printf "%s\n" "${choices[@]}" | gum choose --no-limit --header="Select packages" --height=15)
+	[ -z "$selected" ] && exit 0
 
-    if gum spin --spinner dot --title "Installing $package (check $LOG_FILE for details)..." -- bash -c "
-        set -e
-        # Preinstall
-        if [[ -f '$package/preinstall.sh' ]]; then
-            chmod +x '$package/preinstall.sh'
-            ./'$package/preinstall.sh' >> '$LOG_FILE' 2>&1
-        fi
+	# Main loop
+	echo "$selected" | while read -r line; do
+	    package=$(echo "$line" | awk -F ' | ' '{print $1}')
+	
+	    if install_stow_package "$package"; then
+	        echo "$package: Done"
+	    else
+	        echo "$package: FAILED. See $LOG_FILE for details."
+	        if gum confirm "Show error log for $package?"; then
+	            gum pager < "$LOG_FILE"
+	        fi
+	    fi
+	done
+}
 
-        # Stow
-        stow -R --ignore="info.txt" --ignore="preinstall.sh" --ignore="postinstall.sh" '$package' --adopt >> '$LOG_FILE' 2>&1
-
-        # Postinstall
-        if [[ -f '$package/postinstall.sh' ]]; then
-            chmod +x '$package/postinstall.sh'
-            ./'$package/postinstall.sh' >> '$LOG_FILE' 2>&1
-        fi
-    "; then
-        echo "$package: Done"
-    else
-        echo "$package: FAILED. See $LOG_FILE for details."
-        if gum confirm "Show error log for $package?"; then
-            gum pager < "$LOG_FILE"
-        fi
-    fi
-done
+if gum confirm "Would you like to install extra stow packages?"; then
+	install_extra_stow_pkgs
+fi
 
 # Complete message
 gum style --foreground 2 --border-foreground 2 --border double --align center --width 50 --margin "1 2" --padding "1 2" "Installation Complete!"
