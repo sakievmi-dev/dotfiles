@@ -45,6 +45,26 @@ if ! command -v yay &> /dev/null; then
     fi
 fi
 
+# Stow Package installation logic
+install_stow_package() {
+    local package=$1
+    gum spin --spinner dot --title "Processing $package..." -- bash -c "
+        set -e
+
+        if [[ -f '$package/preinstall.sh' ]]; then
+            chmod +x '$package/preinstall.sh'
+            ./'$package/preinstall.sh' >> '$LOG_FILE' 2>&1
+        fi
+
+        stow -R --ignore='info.txt' --ignore='preinstall.sh' --ignore='postinstall.sh' '$package' --adopt >> '$LOG_FILE' 2>&1
+
+        if [[ -f '$package/postinstall.sh' ]]; then
+            chmod +x '$package/postinstall.sh'
+            ./'$package/postinstall.sh' >> '$LOG_FILE' 2>&1
+        fi
+    "
+}
+
 # Get all stow packages
 choices=()
 for d in */; do
