@@ -27,7 +27,7 @@ install_yay() {
 
 if ! command -v yay &> /dev/null; then
     echo "yay not found. Starting installation..."
-    
+
     if install_yay >> "$LOG_FILE" 2>&1; then
         echo "yay installed successfully!"
     else
