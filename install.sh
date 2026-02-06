@@ -2,6 +2,15 @@
 LOG_FILE="install.log"
 > "$LOG_FILE"
 
+gum style --foreground 1 --border-foreground 1 --border double --align center --width 60 \
+    "WARNING: This script will overwrite your existing configs!" \
+    "Recommended for clean Arch Linux installations only."
+
+if ! gum confirm "Do you understand that your current configs may be replaced?"; then
+    echo "Installation cancelled."
+    exit 0
+fi
+
 echo "Administrator privileges required..."
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
