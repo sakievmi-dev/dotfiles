@@ -9,15 +9,13 @@ chosen=$(echo -e "$menu_items" | fuzzel -d -p "󰍜 ")
 
 clean_choice=$(echo "$chosen" | sed 's/^[^[:alnum:]]*//')
 
-echo $clean_choice
-
 case "$clean_choice" in
 	#  Configs
 	"Configs")
 	        $FILE_MANAGER ~/.dotfiles
 		;;
 	"Edit Configs")
-		
+		~/.local/scripts/fuzzel-edit-configs.sh
 		;;
 	*)
 		exit 0
