@@ -2,6 +2,9 @@ binds {
     // === Help ===
     Mod+Slash hotkey-overlay-title="Show this help menu" { spawn-sh "$HOME/.local/scripts/niri-binds.sh"; }
 
+    // === Menu ===
+    Mod+M hotkey-overlay-title="Open system menu" { spawn-sh "$HOME/.local/scripts/fuzzel-menu.sh"; }
+
     // === Applications ===
     Mod+Space   hotkey-overlay-title="Application: App Launcher"  { spawn-sh "$LAUNCHER"; }
     Mod+B       hotkey-overlay-title="Application: Web Browser"   { spawn-sh "$BROWSER"; }
