@@ -12,5 +12,7 @@ case $CHOICE in
 	echo $modules
 
 	$customizer_script --modules_right $modules
+
+	echo 'Done! Press Enter...'; read
 	;;
 esac
