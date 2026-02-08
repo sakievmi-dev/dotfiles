@@ -47,6 +47,7 @@ MODULE_DATA = {
     "clock#date": WaybarModule(mod_path("clock#date.json"), "date"),
     "clock#time": WaybarModule(mod_path("clock#time.json"), "time"),
     "niri/language": WaybarModule(mod_path("niri/language.json"), "language"),
+    "custom/updates": WaybarModule(mod_path("custom/updates.json"), "updates"),
     # If you want to add custom module, feel free to do this!
 }
 

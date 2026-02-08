@@ -181,5 +181,9 @@ tooltip label {
     font-size: 11pt;
     color: @workspace-unfocused;
     background: transparent;
-} 
+}
 
+#custom-updates {
+    background: @updates;
+    color: @updates-text;
+}
