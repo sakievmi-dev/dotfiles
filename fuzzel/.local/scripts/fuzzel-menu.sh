@@ -37,7 +37,7 @@ case "$index" in
         ~/.local/scripts/fuzzel-configs_edit-configs.sh
         ;;
     8) # 󰑡 Waybar
-        $FILE_MANAGER ~/.config/waybar/
+        ~/.local/scripts/fuzzel-appearance_waybar.sh
         ;;
     *)
         ~/.local/scripts/fuzzel-menu.sh
