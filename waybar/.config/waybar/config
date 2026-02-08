@@ -10,9 +10,11 @@
     "modules-right": [
         "custom/arrow-end",
         "pulseaudio",
-        "custom/arrow#pulseaudio-network",
-        "network",
-        "custom/arrow#network-memory",
+        "custom/arrow#pulseaudio-mpris",
+        "mpris",
+        "custom/arrow#mpris-updates",
+        "custom/updates",
+        "custom/arrow#updates-memory",
         "memory",
         "custom/arrow#memory-language",
         "niri/language",
@@ -31,11 +33,15 @@
         "format": "\ue0b2",
         "tooltip": false
     },
-    "custom/arrow#pulseaudio-network": {
+    "custom/arrow#pulseaudio-mpris": {
         "format": "\ue0b2",
         "tooltip": false
     },
-    "custom/arrow#network-memory": {
+    "custom/arrow#mpris-updates": {
+        "format": "\ue0b2",
+        "tooltip": false
+    },
+    "custom/arrow#updates-memory": {
         "format": "\ue0b2",
         "tooltip": false
     },
@@ -75,13 +81,29 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "tooltip": false
     },
-    "network": {
-        "interval": 5,
-        "format-wifi": "\uf1eb {essid} ({signalStrength}%)",
-        "format-ethernet": "\udb81\udc8b  {ifname}",
-        "format-disconnected": "No connection",
-        "format-alt": "\ueb50  {ipaddr}/{cidr}",
-        "tooltip": false
+    "mpris": {
+        "format": "{player_icon}  {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "\u25b6",
+            "spotify": "\uf1bc",
+            "firefox": "\uf269"
+        },
+        "status-icons": {
+            "paused": "\u23f8"
+        },
+        "max-length": 40,
+        "interval": 1
+    },
+    "custom/updates": {
+        "format": " {icon} {0} ",
+        "return-type": "json",
+        "format-icons": {
+            "pending-updates": "\uf019 ",
+            "updated": "\uf05d"
+        },
+        "exec-if": "which waybar-updates",
+        "exec": "waybar-updates"
     },
     "memory": {
         "interval": 5,
