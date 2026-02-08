@@ -187,3 +187,8 @@ tooltip label {
     background: @updates;
     color: @updates-text;
 }
+
+#mpris {
+    background: @mpris;
+    color: @mpris-text;
+}

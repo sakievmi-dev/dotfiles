@@ -44,6 +44,7 @@ MODULE_DATA = {
     "memory": WaybarModule(mod_path("memory.json"), "memory"),
     "network": WaybarModule(mod_path("network.json"), "network"),
     "pulseaudio": WaybarModule(mod_path("pulseaudio.json"), "pulseaudio"),
+    "mpris": WaybarModule(mod_path("mpris.json"), "mpris"),
     "clock#date": WaybarModule(mod_path("clock#date.json"), "date"),
     "clock#time": WaybarModule(mod_path("clock#time.json"), "time"),
     "niri/language": WaybarModule(mod_path("niri/language.json"), "language"),

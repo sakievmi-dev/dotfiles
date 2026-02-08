@@ -57,6 +57,8 @@
 @define-color tray              @base;
 @define-color updates           @sapphire;
 @define-color updates-text      @text-dark;
+@define-color mpris		@rosewater;
+@define-color mpris-text	@text-dark;
 
 /* Workspaces */
 @define-color workspace-focused     @lavender;
