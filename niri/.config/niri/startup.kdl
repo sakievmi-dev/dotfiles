@@ -1,3 +1,5 @@
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "dunst"
+
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store & disown; wl-paste --type image --watch cliphist store & disown"
