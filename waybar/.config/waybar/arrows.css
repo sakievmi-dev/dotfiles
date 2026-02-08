@@ -2,27 +2,33 @@
     font-size: 11pt;
     color: @pulseaudio;
     background: transparent;
-}#custom-arrow.pulseaudio-network {
+}
+#custom-arrow.pulseaudio-network {
     font-size: 11pt;
     color: @network;
     background: @pulseaudio;
-}#custom-arrow.network-memory {
+}
+#custom-arrow.network-memory {
     font-size: 11pt;
     color: @memory;
     background: @network;
-}#custom-arrow.memory-language {
+}
+#custom-arrow.memory-language {
     font-size: 11pt;
     color: @language;
     background: @memory;
-}#custom-arrow.language-tray {
+}
+#custom-arrow.language-tray {
     font-size: 11pt;
     color: @tray;
     background: @language;
-}#custom-arrow.tray-date {
+}
+#custom-arrow.tray-date {
     font-size: 11pt;
     color: @date;
     background: @tray;
-}#custom-arrow.date-time {
+}
+#custom-arrow.date-time {
     font-size: 11pt;
     color: @time;
     background: @date;
