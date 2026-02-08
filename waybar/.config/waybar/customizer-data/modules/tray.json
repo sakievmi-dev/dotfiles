@@ -1,0 +1,6 @@
+{
+	"format": "\udb80\udf0c  {}",
+	"min-length": 5,
+	"on-click": "niri msg action switch-layout next",
+	"tooltip": false
+}

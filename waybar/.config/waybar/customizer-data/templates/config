@@ -1,0 +1,17 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"niri/mode",
+		"niri/workspaces",
+		"custom/arrow-workspace",
+		"niri/window"
+	],
+	"modules-right": [
+		
+	],
+	"custom/arrow-workspace": {
+		"format": "",
+		"tooltip": false
+	}
+}

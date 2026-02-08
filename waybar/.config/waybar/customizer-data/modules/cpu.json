@@ -1,0 +1,10 @@
+{
+	"interval": 5,
+	"tooltip": false,
+	"format": " {usage}%",
+	"format-alt": " {load}",
+	"states": {
+		"warning": 70,
+		"critical": 90
+	}
+}

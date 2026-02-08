@@ -1,0 +1,7 @@
+{
+	"interval": 20,
+	"format": "{:%e %b %Y}",
+	"tooltip": true,
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"tooltip-format": "{:%e %B %Y}"
+}

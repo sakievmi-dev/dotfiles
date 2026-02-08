@@ -1,0 +1,9 @@
+{
+	"interval": 5,
+	"format": "\uefc5  {used:0.1f}G/{total:0.1f}G",
+	"states": {
+		"warning": 70,
+		"critical": 90
+	},
+	"tooltip": false
+}

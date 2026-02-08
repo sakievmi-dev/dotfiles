@@ -1,0 +1,7 @@
+{
+	"interval": 10,
+	"format": "{:%H:%M}",
+	"tooltip": false,
+	"on-click": "for i in {1..5}; do dunstctl history-pop; done",
+	"on-click-right": "dunstctl close-all"
+}
