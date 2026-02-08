@@ -210,10 +210,10 @@ if __name__ == "__main__":
         print("\n".join(all_modules))
 
     if args.modules_right:
-        modules_left: list[str] = args.modules_left.split(";")
+        modules_right: list[str] = args.modules_right.split(";")
 
         json_modules, rules, arrows_modules = (
-            wb_config_manager.generate_rules_and_modules(modules_left)
+            wb_config_manager.generate_rules_and_modules(modules_right)
         )
 
         config_final = wb_config_manager.generate_json_config(
