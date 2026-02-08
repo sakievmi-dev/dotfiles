@@ -38,6 +38,6 @@ case "$index" in
         $FILE_MANAGER ~/.dotfiles/yazi/.config/yazi/
         ;;
     *)
-        exit 0
+        ~/.local/scripts/fuzzel-menu.sh
         ;;
 esac
