@@ -9,8 +9,9 @@ from pathlib import Path
 
 # Const
 BASE_DIR = Path(__file__).resolve().parent
-WB_MODULES = BASE_DIR / "modules"
 WB_USER_CONFIG_PATH = Path().home() / ".config" / "waybar"
+WB_CUSTOMIZER_PATH = WB_USER_CONFIG_PATH / "customizer-data"
+WB_MODULES = WB_CUSTOMIZER_PATH / "modules"
 
 
 # Dataclasses
@@ -53,8 +54,8 @@ MODULE_DATA = {
 class FileManager:
     def __init__(self):
         self.paths = {
-            "template_config": BASE_DIR / "templates" / "config",
-            "template_arrow": BASE_DIR / "templates" / "arrow.json",
+            "template_config": WB_CUSTOMIZER_PATH / "templates" / "config",
+            "template_arrow": WB_CUSTOMIZER_PATH / "templates" / "arrow.json",
             "user_config": WB_USER_CONFIG_PATH / "config",
             "user_css_arrows": WB_USER_CONFIG_PATH / "arrows.css",
         }
