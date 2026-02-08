@@ -25,7 +25,7 @@ index=$(echo -e "$menu_items" | grep -nxF "$chosen" | cut -d: -f1)
 
 case "$index" in
     2) # 󰐥 Power Menu
-       ~/.local/scripts/fuzzel-power-menu.sh ;;
+       ~/.local/scripts/fuzzel-system_power-menu.sh ;;
     3) # Update
        $TERMINAL sh -c "yay --diffmenu=false --cleanmenu=false --editmenu=false -Syu --noconfirm; echo 'Done! Press Enter...'; read" ;;
     4) # Do Not Disturb
@@ -34,7 +34,7 @@ case "$index" in
         $FILE_MANAGER ~/.dotfiles
         ;;
     6) #  Edit Configs
-        ~/.local/scripts/fuzzel-edit-configs.sh
+        ~/.local/scripts/fuzzel-configs_edit-configs.sh
         ;;
     8) # 󰑡 Waybar
         $FILE_MANAGER ~/.config/waybar/
