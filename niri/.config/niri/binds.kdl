@@ -62,6 +62,10 @@ binds {
     Mod+3 hotkey-overlay-title="Switch to Workspace 3" { focus-workspace 3; }
     Mod+4 hotkey-overlay-title="Switch to Workspace 4" { focus-workspace 4; }
     Mod+5 hotkey-overlay-title="Switch to Workspace 5" { focus-workspace 5; }
+    Mod+6 hotkey-overlay-title="Switch to Workspace 5" { focus-workspace 6; }
+    Mod+7 hotkey-overlay-title="Switch to Workspace 5" { focus-workspace 7; }
+    Mod+8 hotkey-overlay-title="Switch to Workspace 5" { focus-workspace 8; }
+    Mod+9 hotkey-overlay-title="Switch to Workspace 5" { focus-workspace 9; }
 
     Mod+BracketLeft  hotkey-overlay-title="Group Window Left"  { consume-or-expel-window-left; }
     Mod+BracketRight hotkey-overlay-title="Group Window Right" { consume-or-expel-window-right; }
