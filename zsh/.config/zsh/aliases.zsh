@@ -16,12 +16,6 @@ alias cleano='sudo pacman -Rs $(pacman -Qqdt)'
 alias py='python'
 alias venv='source .venv/bin/activate' # Activates Python .venv from root project folder
 
-# === QUICK CONFIGS ===
-alias zconf='cd ~/.config/zsh && yazi'
-alias nconf='cd ~/.config/niri && yazi'
-alias wbconf='cd ~/.config/waybar && yazi'
-alias vconf='cd ~/.config/nvim && yazi'
-
 # === YAZI ===
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
