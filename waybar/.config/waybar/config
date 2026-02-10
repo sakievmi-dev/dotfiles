@@ -82,7 +82,7 @@
         "tooltip": false
     },
     "mpris": {
-        "format": "{player_icon}  {dynamic}",
+        "format": " {player_icon} {dynamic} ",
         "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
             "default": "\u25b6",
@@ -130,7 +130,23 @@
         "interval": 20,
         "format": "{:%e %b %Y}",
         "tooltip": true,
-        "tooltip-format": "{:%e %B %Y}"
+        "tooltip-format": "<span color='#89b4fa' size='large' weight='bold'>{:%Y %B}</span>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span><b>{}</b></span>",
+                "days": "<span><b>{}</b></span>",
+                "weeks": "<span><b>W{}</b></span>",
+                "weekdays": "<span><b>{}</b></span>",
+                "today": "<span><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "clock#time": {
         "interval": 10,
