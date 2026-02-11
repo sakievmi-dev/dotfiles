@@ -1,0 +1,4 @@
+Minimalistic player for music and video.
+
+Credits:
+presist-properties.lua - https://github.com/d87/mpv-persist-properties
