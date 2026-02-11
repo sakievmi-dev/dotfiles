@@ -1,9 +1,9 @@
 binds {
     // === Help ===
-    Mod+Slash hotkey-overlay-title="Show this help menu" { spawn-sh "$HOME/.local/scripts/niri-binds.sh"; }
+    Mod+Slash hotkey-overlay-title="Show this help menu" { spawn-sh "$HOME/.local/scripts/fuzzel/niri-binds.sh"; }
 
     // === Menu ===
-    Mod+M hotkey-overlay-title="Open system menu" { spawn-sh "$HOME/.local/scripts/fuzzel-menu.sh"; }
+    Mod+M hotkey-overlay-title="Open system menu" { spawn-sh "$HOME/.local/scripts/fuzzel/menu/menu.sh"; }
 
     // === Applications ===
     Mod+Space   hotkey-overlay-title="Application: App Launcher"  { spawn-sh "$LAUNCHER"; }
@@ -88,7 +88,7 @@ binds {
     Mod+Escape  hotkey-overlay-title="Inhibit Shortcuts" { toggle-keyboard-shortcuts-inhibit; }
 
     // === Misc ===
-    Mod+P hotkey-overlay-title="Clipboard History" { spawn-sh "$HOME/.local/scripts/niri-clipboard.sh"; }
+    Mod+P hotkey-overlay-title="Clipboard History" { spawn-sh "$HOME/.local/scripts/fuzzel/cliphistr.sh"; }
 
     // === Exit ===
     Ctrl+Alt+Delete hotkey-overlay-title="Quit Niri" { quit; }

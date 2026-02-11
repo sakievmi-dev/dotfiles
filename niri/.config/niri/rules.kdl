@@ -26,6 +26,16 @@ window-rule { // Fullscreen windows
 	open-fullscreen true
 }
 
+// === TERMINAL STUFF ===
+window-rule { // Pop-up windows (when opening from fuzzel)
+	match app-id="pop-up-terminal"
+
+	default-column-width	{ fixed 800; }
+	default-window-height	{ fixed 600; }
+
+	open-floating true
+}
+
 // === PER APPLICATION ===
 // Kdenline
 window-rule {
