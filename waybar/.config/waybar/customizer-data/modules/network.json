@@ -1,8 +1,8 @@
 {
-	"interval": 5,
-	"format-wifi": " {essid} ({signalStrength}%)",
-	"format-ethernet": "\udb81\udc8b  {ifname}",
-	"format-disconnected": "No connection",
-	"format-alt": "\ueb50  {ipaddr}/{cidr}",
-	"tooltip": false
+	"interval": 1,
+	"format-wifi": "  {bandwidthDownBytes} ⬇ {bandwidthUpBytes} ⬆",
+	"format-ethernet": "󰈀  {bandwidthDownBytes} ⬇ {bandwidthUpBytes} ⬆",
+	"format-disconnected": "⚠ Disconnected",
+	"tooltip-format": "{ifname} via {gwaddr}",
+	"max-length": 50
 }
