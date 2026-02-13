@@ -3,6 +3,5 @@
 	"format-wifi": "  {bandwidthDownBytes} ⬇ {bandwidthUpBytes} ⬆",
 	"format-ethernet": "󰈀  {bandwidthDownBytes} ⬇ {bandwidthUpBytes} ⬆",
 	"format-disconnected": "⚠ Disconnected",
-	"tooltip-format": "{ifname} via {gwaddr}",
-	"max-length": 50
+	"tooltip-format": "{ifname} via {gwaddr}"
 }
