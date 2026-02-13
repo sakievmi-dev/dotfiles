@@ -20,7 +20,6 @@
         "niri/language",
         "custom/arrow#language-tray",
         "tray",
-        "custom/arrow#tray-date",
         "clock#date",
         "custom/arrow#date-time",
         "clock#time"
@@ -82,8 +81,8 @@
         "tooltip": false
     },
     "mpris": {
-        "format": " {player_icon} {dynamic} ",
-        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "format": "{player_icon} {title}",
+        "format-paused": "{status_icon} <i>{title}</i>",
         "player-icons": {
             "default": "\u25b6",
             "spotify": "\uf1bc",
