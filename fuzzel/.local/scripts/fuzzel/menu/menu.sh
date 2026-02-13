@@ -11,6 +11,7 @@ fi
 menu_dir_path=~/.local/scripts/fuzzel/menu
 category_sys=$menu_dir_path/system
 category_cfgs=$menu_dir_path/configs
+category_appearance=$menu_dir_path/appearance
 
 # Options
 declare -A ACTIONS=(
@@ -27,6 +28,8 @@ declare -A ACTIONS=(
   ["  󰏫 Edit zsh"]="bash '$category_cfgs/zsh.sh'"
   ["  󰏫 Edit kitty"]="bash '$category_cfgs/kitty.sh'"
   ["  󰏫 Edit yazi"]="bash '$category_cfgs/yazi.sh'"
+  [" Appearance"]="exec '$0'"
+  ["   Waybar"]="bash '$category_appearance/waybar.sh'"
 )
 MENU_ORDER=(
   "󰣇 System"
@@ -42,6 +45,8 @@ MENU_ORDER=(
   "  󰏫 Edit zsh"
   "  󰏫 Edit kitty"
   "  󰏫 Edit yazi"
+  " Appearance"
+  "   Waybar"
 )
 
 # Main
