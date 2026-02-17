@@ -8,3 +8,4 @@ wallpapers
 waybar
 yazi
 zsh
+nvim
