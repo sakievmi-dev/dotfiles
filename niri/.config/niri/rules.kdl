@@ -59,7 +59,7 @@ window-rule { // Friends list
 	match app-id="steam" title="Friends List"
 
 	open-floating false
-	default-column-width { fixed 375; }
+	default-column-width { proportion 0.3; }
 }
 
 // Keypunch
@@ -86,7 +86,7 @@ window-rule { // Media viewer
 window-rule {
 	match app-id="org.telegram.desktop"
 
-	default-column-width { fixed 550; }
+	default-column-width { proportion 0.3; }
 }
 
 // pcmanfm-qt
