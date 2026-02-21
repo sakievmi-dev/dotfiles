@@ -26,6 +26,12 @@ window-rule { // Fullscreen windows
 	open-fullscreen true
 }
 
+// === ACTIVE/INACTIVE WINDOWS ===
+window-rule {
+    match is-active=false
+    opacity 0.95
+}
+
 // === TERMINAL STUFF ===
 window-rule { // Pop-up windows (when opening from fuzzel)
 	match app-id="pop-up-terminal"
