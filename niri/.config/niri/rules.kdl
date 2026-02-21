@@ -95,11 +95,9 @@ window-rule {
 	default-column-width { proportion 0.3; }
 }
 
-// pcmanfm-qt
+// ProtonUp-Qt
 window-rule {
-	match app-id="pcmanfm-qt" title="Preferences"
-	match app-id="pcmanfm-qt" title="Search Files"
-	match app-id="pcmanfm-qt" title="Execute file"
+	match app-id="net.davidotek.pupgui2"
     
 	open-floating true
 }
