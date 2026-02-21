@@ -104,9 +104,14 @@ window-rule {
 	open-floating true
 }
 
-// ProtonUp-Qt
+// === GAMES ===
 window-rule {
-	match app-id="net.davidotek.pupgui2"
-    
-	open-floating true
+    // All gamescope windows (may conflict with non-fullscreen windows)
+    match app-id="gamescope"
+    // Overwatch
+    match app-id="steam_app_2357570"
+    match title="Overwatch"
+
+    open-fullscreen true
+    open-floating false
 }
