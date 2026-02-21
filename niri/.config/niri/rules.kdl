@@ -43,6 +43,13 @@ window-rule { // Pop-up windows (when opening from fuzzel)
 }
 
 // === PER APPLICATION ===
+// Kitty
+window-rule {
+    match app-id="kitty"
+
+    default-column-width { proportion 0.5; }
+}
+
 // Kdenline
 window-rule {
 	match title="Kdenlive"
