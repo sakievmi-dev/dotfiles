@@ -20,3 +20,4 @@ opt.smartindent = true
 opt.termguicolors = true
 opt.clipboard = "unnamedplus"
 opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
+opt.pumheight = 10
