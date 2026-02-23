@@ -1,6 +1,7 @@
 from __future__ import annotations
 import subprocess
 from pathlib import Path
+from typing import Callable
 
 
 # Utils {{{
@@ -20,20 +21,54 @@ def spawn_fuzzel(options_string: str, prompt: str) -> str:
     return process_output
 
 
+def get_dunst_icon() -> str:
+    executable = Path("/usr/bin/dunstctl")
+
+    process = subprocess.run(
+        [executable, "is-paused"],
+        capture_output=True,
+        text=True,
+    )
+
+    process_output = process.stdout.strip()
+
+    if process_output == "true":
+        return "󰂛"
+    else:
+        return "󰂚"
+
+
 # }}}
 
 # Classes {{{
 
 
 class FuzzelOption:
-    def __init__(self, title: str, command: list[str] | FuzzelMenu = []) -> None:
-        self.title = title
+    def __init__(
+        self,
+        title: str | Callable,
+        command: list[str] | FuzzelMenu = [],
+        return_back: bool = False,
+    ) -> None:
+        self._title = title
         self.command = command
+        self.return_back = return_back
 
-    def exec(self) -> FuzzelMenu | None:
+    @property
+    def title(self) -> str:
+        if callable(self._title):
+            return self._title()
+        return self._title
+
+    def exec(self, menu: FuzzelMenu) -> FuzzelMenu | None:
         # Check if getting a command prompt
         if isinstance(self.command, list) and len(self.command) > 0:
             subprocess.run(self.command, capture_output=True, text=True)
+
+            # Check if getting return_back is true
+            if self.return_back:
+                return menu
+
             return None
 
         # Check if getting a FuzzelMenu
@@ -71,9 +106,11 @@ class FuzzelMenu:
         if not result:
             return None
 
+        # Returning a selected option from local_option
         for option in local_options:
             if option.title == result:
-                return option.exec()
+                # Check if return_back is true
+                return option.exec(self)
 
         return None
 
@@ -90,12 +127,18 @@ def setup_menus():
     main.options = [
         FuzzelOption("󰣇 System"),
         FuzzelOption("  󰐥 Power Menu", power),
-        FuzzelOption("  󰚰 Update", ["echo", "done"]),
+        FuzzelOption("  󰚰 Update", ["echo", "done"]),  # TODO make this
+        FuzzelOption(
+            lambda: f"  {get_dunst_icon()} DND",
+            ["dunstctl", "set-paused", "toggle"],
+            return_back=True,
+        ),
     ]
 
     power.options = [
         FuzzelOption("  󰐥 Shutdown", ["systemctl", "poweroff"]),
         FuzzelOption("   Reboot", ["systemctl", "reboot"]),
+        FuzzelOption("   BIOS Setup", ["systemctl", "reboot", "--firmware-setup"]),
     ]
 
     return main
@@ -107,3 +150,4 @@ if __name__ == "__main__":
     current = setup_menus()
     while current:
         current = current.show()
+
