@@ -20,15 +20,19 @@ class Fuzzel:
 
         return process_output
 
+    # Classes
     class FuzzelOption:
         def __init__(self, title: str, command: list[str]) -> None:
             self.title = title
             self.command = command
 
-        def exec(self):
-            command_output = subprocess.run(self.command, capture_output=True).stdout
+        def exec(self) -> str:
+            process = subprocess.run(self.command, capture_output=True, text=True)
+            process_output = process.stdout
 
-            print(command_output)
+            print(process_output)
+
+            return process_output
 
     class Menu:
         def __init__(
@@ -42,9 +46,13 @@ class Fuzzel:
                 [f"{option.title}\n" for option in self.options]
             )
 
-            selected_option = Fuzzel.spawn_fuzzel(formatted_options, self.prompt)
+            selected_option = Fuzzel.spawn_fuzzel(
+                formatted_options, self.prompt
+            ).strip()
 
-            print(selected_option)
+            for option in self.options:
+                if option.title == selected_option:
+                    option.exec()
 
 
 # Menus
@@ -52,8 +60,9 @@ class Fuzzel:
 
 Fuzzel.Menu(
     options=[
-        Fuzzel.FuzzelOption("drist1", ["echoponos1"]),
-        Fuzzel.FuzzelOption("drist2", ["echoponos2"]),
-        Fuzzel.FuzzelOption("drist3", ["echoponos3"]),
+        Fuzzel.FuzzelOption("drist1", ["echo", "ponos1"]),
+        Fuzzel.FuzzelOption("drist2", ["echo", "ponos2"]),
+        Fuzzel.FuzzelOption("drist3", ["echo", "ponos3"]),
     ]
 ).show()
+
