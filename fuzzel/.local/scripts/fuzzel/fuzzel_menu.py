@@ -27,7 +27,7 @@ class Fuzzel:
             self.command = command
 
         def exec(self) -> str:
-            if not self.command:
+            if self.command:
                 process = subprocess.run(self.command, capture_output=True, text=True)
                 process_output = process.stdout
 
@@ -49,9 +49,9 @@ class Fuzzel:
                 [f"{option.title}\n" for option in self.options]
             )
 
-            selected_option = Fuzzel.spawn_fuzzel(
-                formatted_options, self.prompt
-            ).strip()
+            selected_option = Fuzzel.spawn_fuzzel(formatted_options, self.prompt).split(
+                "\n"
+            )[0]
 
             for option in self.options:
                 if option.title == selected_option:
@@ -63,8 +63,9 @@ class Fuzzel:
 
 Fuzzel.Menu(
     options=[
-        Fuzzel.FuzzelOption("drist1", ["echo", "ponos1"]),
-        Fuzzel.FuzzelOption("drist2", ["echo", "ponos2"]),
-        Fuzzel.FuzzelOption("drist3", ["echo", "ponos3"]),
+        Fuzzel.FuzzelOption("drist1"),
+        Fuzzel.FuzzelOption("  drist2", ["echo", "ponos2"]),
+        Fuzzel.FuzzelOption("  drist3", ["echo", "ponos3"]),
     ]
 ).show()
+
