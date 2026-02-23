@@ -22,17 +22,20 @@ class Fuzzel:
 
     # Classes
     class FuzzelOption:
-        def __init__(self, title: str, command: list[str]) -> None:
+        def __init__(self, title: str, command: list[str] = []) -> None:
             self.title = title
             self.command = command
 
         def exec(self) -> str:
-            process = subprocess.run(self.command, capture_output=True, text=True)
-            process_output = process.stdout
+            if not self.command:
+                process = subprocess.run(self.command, capture_output=True, text=True)
+                process_output = process.stdout
 
-            print(process_output)
+                print(process_output)
 
-            return process_output
+                return process_output
+
+            return ""
 
     class Menu:
         def __init__(
@@ -65,4 +68,3 @@ Fuzzel.Menu(
         Fuzzel.FuzzelOption("drist3", ["echo", "ponos3"]),
     ]
 ).show()
-
