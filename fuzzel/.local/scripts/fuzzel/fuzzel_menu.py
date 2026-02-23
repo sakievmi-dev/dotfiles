@@ -1,3 +1,4 @@
+from __future__ import annotations
 import subprocess
 from pathlib import Path
 
@@ -22,50 +23,81 @@ class Fuzzel:
 
     # Classes
     class FuzzelOption:
-        def __init__(self, title: str, command: list[str] = []) -> None:
+        def __init__(self, title: str, command: list[str] | Fuzzel.Menu = []) -> None:
             self.title = title
             self.command = command
 
-        def exec(self) -> str:
-            if self.command:
-                process = subprocess.run(self.command, capture_output=True, text=True)
-                process_output = process.stdout
+        def exec(self) -> Fuzzel.Menu | None:
+            if isinstance(self.command, list) and len(self.command) > 0:
+                subprocess.run(self.command, capture_output=True, text=True)
+                return None
 
-                print(process_output)
+            if isinstance(self.command, Fuzzel.Menu):
+                return self.command
 
-                return process_output
-
-            return ""
+            return None
 
     class Menu:
         def __init__(
-            self, options: list["Fuzzel.FuzzelOption"], prompt: str = "󰍜 "
+            self,
+            options: list[Fuzzel.FuzzelOption],
+            prompt: str = "󰍜 ",
+            has_back: bool = False,
+            parent: Fuzzel.Menu | None = None,
         ) -> None:
             self.options = options
             self.prompt = prompt
+            self.has_back = has_back
+            self.parent = parent
 
-        def show(self):
+        def show(self) -> Fuzzel.Menu | None:
+            local_options = self.options[:]
+            if self.has_back and isinstance(self.parent, Fuzzel.Menu):
+                local_options.insert(0, Fuzzel.FuzzelOption(" Back", self.parent))
+
             formatted_options = "".join(
-                [f"{option.title}\n" for option in self.options]
+                [f"{option.title}\n" for option in local_options]
             )
 
-            selected_option = Fuzzel.spawn_fuzzel(formatted_options, self.prompt).split(
-                "\n"
-            )[0]
+            result = Fuzzel.spawn_fuzzel(formatted_options, self.prompt).split("\n")[0]
 
-            for option in self.options:
-                if option.title == selected_option:
-                    option.exec()
+            if not result:
+                return None
+
+            for option in local_options:
+                if option.title == result:
+                    return option.exec()
+            return None
 
 
 # Menus
 # main_menu = Fuzzel.Menu()
 
-Fuzzel.Menu(
-    options=[
-        Fuzzel.FuzzelOption("drist1"),
-        Fuzzel.FuzzelOption("  drist2", ["echo", "ponos2"]),
-        Fuzzel.FuzzelOption("  drist3", ["echo", "ponos3"]),
-    ]
-).show()
+menu_main = Fuzzel.Menu(options=[])
+menu_power = Fuzzel.Menu(options=[], prompt="󰐥 ", has_back=True, parent=menu_main)
+
+menu_main.options = [
+    Fuzzel.FuzzelOption("󰣇 System"),
+    Fuzzel.FuzzelOption("  󰐥 Power Menu", menu_power),
+    Fuzzel.FuzzelOption("  󰚰 Update", ["echo", "done"]),
+]
+
+menu_power.options = [
+    Fuzzel.FuzzelOption("  󰐥 Shutdown", ["systemctl", "poweroff"]),
+    Fuzzel.FuzzelOption("   Reboot", ["systemctl", "reboot"]),
+]
+
+
+def run_menu(start_menu: Fuzzel.Menu):
+    current_menu = start_menu
+    while current_menu is not None:
+        next_menu = current_menu.show()
+
+        if isinstance(next_menu, Fuzzel.Menu):
+            current_menu = next_menu
+        else:
+            break
+
+
+run_menu(menu_main)
 
