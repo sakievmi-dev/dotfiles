@@ -38,6 +38,14 @@ def get_dunst_icon() -> str:
         return "󰂚"
 
 
+def spawn_popup_terminal(command: list[str]):
+    local_command: list = ["kitty", "--class", "pop-up-terminal", "sh", "-c"] + command
+
+    print(local_command)
+
+    subprocess.run(local_command)
+
+
 # }}}
 
 # Classes {{{
@@ -121,18 +129,22 @@ class FuzzelMenu:
 
 
 def setup_menus():
+    popup_terminal = ["kitty", "--class", "pop-up-terminal", "sh", "-c"]
+
     main = FuzzelMenu(options=[])
     power = FuzzelMenu(options=[], prompt="󰐥 ", has_back=True, parent=main)
 
     main.options = [
         FuzzelOption("󰣇 System"),
         FuzzelOption("  󰐥 Power Menu", power),
-        FuzzelOption("  󰚰 Update", ["echo", "done"]),  # TODO make this
+        # TODO make this, note in Obsidian
+        FuzzelOption("  󰚰 Update", ["echo", "done"]),
         FuzzelOption(
             lambda: f"  {get_dunst_icon()} DND",
             ["dunstctl", "set-paused", "toggle"],
             return_back=True,
         ),
+        FuzzelOption("  󰖩 Network", popup_terminal + ["nmtui"]),
     ]
 
     power.options = [
@@ -150,4 +162,3 @@ if __name__ == "__main__":
     current = setup_menus()
     while current:
         current = current.show()
-
