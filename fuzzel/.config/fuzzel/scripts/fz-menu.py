@@ -2,7 +2,8 @@ from __future__ import annotations
 import subprocess
 from pathlib import Path
 from typing import Callable
-
+import notify2
+import re
 
 # Utils {{{
 
