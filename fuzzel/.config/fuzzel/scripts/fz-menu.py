@@ -72,7 +72,9 @@ class FuzzelOption:
     def exec(self, menu: FuzzelMenu) -> FuzzelMenu | None:
         # Check if getting a command prompt
         if isinstance(self.command, list) and len(self.command) > 0:
-            subprocess.run(self.command, capture_output=True, text=True)
+            full_command = " ".join(self.command)
+
+            subprocess.run(full_command, shell=True, capture_output=True, text=True)
 
             # Check if getting return_back is true
             if self.return_back:
@@ -146,6 +148,28 @@ def setup_menus():
             return_back=True,
         ),
         FuzzelOption("  󰖩 Network", popup_terminal + ["nmtui"]),
+        FuzzelOption(" Configs"),
+        FuzzelOption("   Open ~/.dotfiles", ["$FILE_MANAGER", "~/.dotfiles/"]),
+        FuzzelOption(
+            "  󰏫 Edit Kitty",
+            ["$FILE_MANAGER", str(Path.home() / ".dotfiles/kitti/.config/kitty/")],
+        ),
+        FuzzelOption(
+            "  󰏫 Edit Niri",
+            ["$FILE_MANAGER", str(Path.home() / ".dotfiles/niri/.config/niri/")],
+        ),
+        FuzzelOption(
+            "  󰏫 Edit Waybar",
+            ["$FILE_MANAGER", str(Path.home() / ".dotfiles/waybar/.config/waybar/")],
+        ),
+        FuzzelOption(
+            "  󰏫 Edit yazi",
+            ["$FILE_MANAGER", str(Path.home() / ".dotfiles/yazi/.config/yazi/")],
+        ),
+        FuzzelOption(
+            "  󰏫 Edit zsh",
+            ["$FILE_MANAGER", str(Path.home() / ".dotfiles/zsh/.config/zsh/")],
+        ),
     ]
 
     power.options = [
