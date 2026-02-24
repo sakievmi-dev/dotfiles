@@ -1,3 +1,0 @@
-Config for terminal emulator with preconfigured theme and font.
-
-Theme: https://github.com/catppuccin/kitty
