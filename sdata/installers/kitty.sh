@@ -2,5 +2,5 @@
 yay --diffmenu=false --cleanmenu=false --editmenu=false -S --noconfirm --needed kitty
 
 # Stow package
-cd ~/.dotfiles/pkgs
-stow -R -t ~ core/kitty --adopt
+cd ~/.dotfiles/pkgs/core
+stow -R -t ~ kitty --adopt

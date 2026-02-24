@@ -8,5 +8,5 @@ cd ~/.local/share/icons/
 git clone https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set.git yamis
 
 # Stow package
-cd ~/.dotfiles/pkgs
-stow -R -t ~ core/niri --adopt
+cd ~/.dotfiles/pkgs/core
+stow -R -t ~ niri --adopt
