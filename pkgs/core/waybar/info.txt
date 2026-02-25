@@ -1,1 +1,0 @@
-Config, themes and program to customize modules (aka. widgets) for bar.
