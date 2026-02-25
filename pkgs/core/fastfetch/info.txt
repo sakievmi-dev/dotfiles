@@ -1,3 +1,0 @@
-System information tool with preinstalled config.
-
-Inspired by: https://github.com/LierB/fastfetch
