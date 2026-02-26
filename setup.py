@@ -46,9 +46,7 @@ def install_pkg(category: str, package: str):
 def install_core():
     try:
         for pkg in stow_pkgs["core"]:
-            installer_path = stow_pkgs["core"][pkg]["installer_path"]
-
-            subprocess.run(["sh", installer_path])
+            install_pkg("core", pkg)
 
     except KeyboardInterrupt:
         print("Operation Aborted by user.")
