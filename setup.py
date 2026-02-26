@@ -30,6 +30,19 @@ for category in os.scandir(PACKAGES_PATH):
 # Functions {{{
 
 
+def install_pkg(category: str, package: str):
+    if category not in stow_pkgs:
+        print(f"Category {category} does not exist. Skipping..")
+        return None
+
+    if package not in stow_pkgs[category]:
+        print(f"Package {package} does not exist. Skipping..")
+        return None
+
+    installer_path = stow_pkgs[category][package]["installer_path"]
+    subprocess.run(["sh", installer_path])
+
+
 def install_core():
     try:
         for pkg in stow_pkgs["core"]:
