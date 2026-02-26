@@ -59,7 +59,15 @@ if __name__ == "__main__":
         "setup", help="Installs core packages of sakievmi-dotfiles"
     )
 
+    install_parser = subparsers.add_parser(
+        "install", help="Installs extra packages selected by user"
+    )
+    install_parser.add_argument(
+        "packages", nargs="+", help="List of packages to install"
+    )
+
     args = parser.parse_args()
+
     if args.command == "setup":
         try:
             install_core()
@@ -67,5 +75,18 @@ if __name__ == "__main__":
             print("Operation Aborted by user.")
         except Exception as e:
             print(f"Error occured while installing dotfiles! Error: {e}")
+
+    elif args.command == "install":
+        try:
+            for package in args.packages:
+                if package in stow_pkgs["extra"]:
+                    print(package)
+                else:
+                    print(f"{package} was not found... skipping")
+        except KeyboardInterrupt:
+            print("Operation Aborted by user.")
+        except Exception as e:
+            print(f"Error occured while installing extra packages! Error: {e}")
+
     else:
         parser.print_usage()
