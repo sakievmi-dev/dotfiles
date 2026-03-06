@@ -2,7 +2,7 @@
     # === DISPLAY ===
     monitor = 1
     follow = none
-    width = (200, 300)
+    width = (100, 300)
     height = (0, 300)
     origin = top-right
     offset = (10, 10)
@@ -24,7 +24,7 @@
     transparency = 0
     separator_height = 2
     padding = 8
-    horizontal_padding = 8
+    horizontal_padding = 10
     text_icon_padding = 0
     frame_width = 2
     frame_color = "#b4befe"
@@ -46,14 +46,15 @@
     stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = yes
-
+64
     # === ICONS ===
-    icon_position = off
+    icon_position = left 
     min_icon_size = 32
-    max_icon_size = 128
-    icon_theme = breeze, Adwaita
+    max_icon_size = 48
+    icon_theme = yamis
     enable_recursive_icon_lookup = true
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /home/sakievmi/.local/share/icons/yamis:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/hicolor/48x48/devices:/usr/share/icons/hicolor/48x48/status
 
     # === HISTORY & MISC ===
     sticky_history = yes
