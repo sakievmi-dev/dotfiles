@@ -55,9 +55,15 @@ def install_core():
         print(f"Error occured while installing dotfiles! Error: {e}")
 
 
-# TODO
 def install_extra(pkg_name: str):
-    pass
+    try:
+        install_pkg("extra", pkg_name)
+
+    except KeyboardInterrupt:
+        print("Operation Aborted by user.")
+
+    except Exception as e:
+        print(f"Error occured while installing dotfiles! Error: {e}")
 
 
 # }}}
@@ -79,6 +85,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    # Commands logic {{{
+
     if args.command == "setup":
         try:
             install_core()
@@ -90,10 +98,7 @@ if __name__ == "__main__":
     elif args.command == "install":
         try:
             for package in args.packages:
-                if package in stow_pkgs["extra"]:
-                    print(package)
-                else:
-                    print(f"{package} was not found... skipping")
+                install_extra(package)
         except KeyboardInterrupt:
             print("Operation Aborted by user.")
         except Exception as e:
@@ -101,3 +106,5 @@ if __name__ == "__main__":
 
     else:
         parser.print_usage()
+
+    # }}}
