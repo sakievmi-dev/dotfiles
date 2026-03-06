@@ -1,1 +1,0 @@
-Config for NeoVim. Mostly copy-paste from Kickstart.

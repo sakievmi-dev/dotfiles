@@ -1,4 +1,0 @@
-btop
-equibop
-imv
-mpv
