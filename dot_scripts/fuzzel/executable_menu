@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+import subprocess
+import sys
+import os
+
+"""
+Maybe, that's not a best way to do menu.
+But it definetly better then storing everything in .json file or something like that.
+"""
+
+
+# Creating menu as a tree class
+class MenuItem:
+    def __init__(self, title: str, parent=None, sh: list = []) -> None:
+        self.title = title
+        self.parent = parent
+        self.children = []
+        self.sh = sh
+
+    def add_child(self, child):
+        child.parent = self
+        self.children.append(child)
+
+
+# Function to run fuzzel with all arguments
+def run_fuzzel(options: MenuItem):
+    foptions = []
+
+    if options.parent:
+        foptions.append(MenuItem("󰌍 back"))
+
+    foptions.extend(options.children)
+    fstr = "\n".join(str(opt.title) for opt in foptions)
+
+    process = subprocess.run(
+        ["fuzzel", "--dmenu"], input=fstr, text=True, capture_output=True
+    )
+
+    return process.stdout.strip()
+
+
+def config():
+    root = MenuItem("menu")
+
+    screenshots = MenuItem(" screenshots")
+    screenshots.add_child(
+        MenuItem(
+            "screenshot & annotate",
+            sh=["bash", os.path.expanduser("~/.scripts/fuzzel/annotate-screenshot")],
+        )
+    )
+
+    powermenu = MenuItem(" power menu")
+    powermenu.add_child(
+        MenuItem(
+            "shutdown",
+            sh=["systemctl", "poweroff"],
+        )
+    )
+    powermenu.add_child(
+        MenuItem(
+            "reboot",
+            sh=["systemctl", "reboot"],
+        )
+    )
+    powermenu.add_child(
+        MenuItem(
+            "bios setup",
+            sh=["systemctl", "reboot", "--firmware-setup"],
+        )
+    )
+
+    root.add_child(screenshots)
+    root.add_child(powermenu)
+
+    return root
+
+
+current_node = config()
+
+# Main
+while True:
+    choice = run_fuzzel(current_node)
+
+    # Handle exit
+    if choice == "":
+        break
+
+    # Handle 'back' navigation
+    if choice == "󰌍 back":
+        current_node = current_node.parent
+
+    # Handle selection
+    for node in current_node.children:
+        if node.title == choice and node.children:
+            current_node = node
+
+        elif node.title == choice:
+            subprocess.Popen(node.sh)
+
+            sys.exit(0)

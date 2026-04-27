@@ -1,0 +1,5 @@
+//- Bar -//
+spawn-at-startup "waybar"
+
+//- Wallpapers -//
+spawn-at-startup "awww-daemon"

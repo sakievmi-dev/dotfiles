@@ -1,0 +1,86 @@
+autoload -U colors && colors
+setopt PROMPT_SUBST
+
+autoload -Uz compinit
+compinit
+
+# Prompt (crcandy)
+function git_prompt_info() {
+  local ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  local git_st=""
+  
+  if [[ -n $(git status -s 2> /dev/null) ]]; then
+      git_st="%{$fg[red]%}*"
+  else
+      echo ""
+      return
+  fi
+  
+  echo "%{$fg[green]%}[${ref#refs/heads/}${git_st}%{$fg[green]%}]%{$reset_color%}"
+}
+
+PROMPT=$'
+%{$fg_bold[green]%}%n@%m %{$reset_color%}%{$fg[white]%}[%~]%{$reset_color%} $(git_prompt_info)
+%{$fg_bold[blue]%}>%{$reset_color%} '
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}*%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+# ===============================
+# Aliases
+# ===============================
+
+# Safe file operations
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+
+# eza (File listing)
+alias l='eza --icons -lh --group-directories-first'
+alias ls='eza --icons'
+alias tree='eza --icons --tree'
+
+# Package management
+alias pkgs='pacman -Qe'
+alias cleano='sudo pacman -Rs $(pacman -Qqdt)'
+
+# Utils
+alias e='$EDITOR'
+alias v='pulsemixer'
+
+# Python
+alias py='python'
+alias venv='source .venv/bin/activate'
+
+# ===============================
+# Functions
+# ===============================
+
+# Yazi shell integration
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+
+    rm -f -- "$tmp"
+}
+
+# Cmus launcher
+function cmus() {
+    cd ~/mnt/hdd/Media/Music/ || return
+    command cmus "$@"
+}
+
+
+# ===============================
+# Plugins
+# ===============================
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh 

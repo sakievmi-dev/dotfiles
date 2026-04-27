@@ -1,0 +1,55 @@
+layout {
+    gaps 4
+
+    center-focused-column "on-overflow"
+    always-center-single-column
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring { 
+        off 
+    }
+
+    tab-indicator {
+        place-within-column
+
+        length total-proportion=1.0
+
+        gaps-between-tabs 4
+        width 3
+
+        active-color "#f6c177"
+        inactive-color "#26233a"
+    }
+
+    shadow {
+        on
+
+        softness 30
+        spread 5
+        color "#0007"
+    }
+}
+
+animations {
+    off
+}
+
+cursor {
+	xcursor-theme "Bibata-Modern-Classic"
+	xcursor-size 32
+
+	hide-after-inactive-ms 10000
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd

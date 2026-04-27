@@ -1,0 +1,15 @@
+include optional=true "monitors.kdl"
+include "appearance.kdl"
+include "startup.kdl"
+include "binds.kdl"
+include "rules.kdl"
+include "input.kdl"
+include "env.kdl"
+
+//- Workspaces -//
+workspace "term"
+workspace "browser"
+workspace "chat"
+
+//- Screenshots -//
+screenshot-path "~/media/pics/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

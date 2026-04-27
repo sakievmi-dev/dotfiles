@@ -1,0 +1,16 @@
+{
+	"niri/language": {
+		"format": " {} ",
+		// "format-<lang>":
+		"format-en": "en",
+		"format-ru": "ru",
+		"format-uk": "uk"
+		// "keyboard-name":
+		// "min-length":
+		// "max-length":
+		// "menu":
+		// "menu-file":
+		// "menu-actions":
+		// "expand":
+	}
+}

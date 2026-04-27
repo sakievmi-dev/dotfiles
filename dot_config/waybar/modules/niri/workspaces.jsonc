@@ -1,0 +1,11 @@
+{   
+    "niri/workspaces": {
+         "format": "{icon}",
+         "format-icons": {
+            "browser": "",
+            "term": "",
+            "chat": "",
+            "default": ""
+         }
+    }
+}

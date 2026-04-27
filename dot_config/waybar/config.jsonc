@@ -1,0 +1,23 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 20,
+    "spacing": 1,
+
+    "include": [
+        "~/.config/waybar/modules/niri/*.jsonc",
+        "~/.config/waybar/modules/custom/*.jsonc"
+    ],
+
+    "modules-left": [
+        "niri/workspaces"
+    ],
+
+    "modules-center": [
+    ],
+
+    "modules-right": [
+        "niri/language",
+        "clock"
+    ]
+}

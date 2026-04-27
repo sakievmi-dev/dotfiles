@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# reqs: inotify-tools satty
+
+screenshot_dir=~/media/pics/screenshots/
+niri msg action screenshot-screen &&
+  inotifywait -e close $screenshot_dir &&
+  satty -f "$(ls -d -t $screenshot_dir/* | head -n 1)" -o "$(ls -d -t $screenshot_dir/* | head -n 1 | sed 's/\.[^.]*$//').png" --fullscreen --disable-notifications --early-exit --initial-tool "crop" --floating-hack --actions-on-escape "save-to-clipboard" --copy-command "wl-copy"

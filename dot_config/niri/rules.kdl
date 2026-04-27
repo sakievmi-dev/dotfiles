@@ -1,0 +1,81 @@
+//- General -//
+window-rule { // Defaults
+    open-focused true
+}
+
+window-rule { // Block from screen capture
+    // Password managers
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match title=r#"Vaultwarden"#
+
+    // Private messangers
+    match app-id="org.telegram.desktop"
+    match app-id="signal"
+
+    block-out-from "screen-capture"
+}
+
+window-rule { // Inactive windows
+    match is-active=false
+
+    opacity 0.80
+}
+
+//- Open on workspaces -//
+window-rule { // Workspace "term"
+    match app-id="kitty"
+    match app-id="foot"
+
+    default-column-width { proportion 0.6; }
+
+    open-on-workspace "term"
+}
+
+window-rule { // Workspace "browser"
+    match app-id="zen"
+    match app-id="firefox"
+    match app-id="org.qutebrowser.qutebrowser"
+
+    open-maximized true
+
+    open-on-workspace "browser"
+}
+
+window-rule { // Workspace "chat"
+    // Messangers
+    match app-id="org.telegram.desktop"
+    match app-id="equibop"
+
+    // Music
+    match app-id="cmus"
+
+    open-on-workspace "chat"
+}
+
+//- App specific -//
+window-rule { // Zen Browser
+    match app-id="zen"
+
+    focus-ring { // Fixes strange bug with a focus ring
+        width 3
+    }
+}
+
+window-rule { // Telegram (Media Viewer)
+    // You should turn off OpenGL rendering for some reason to make this work
+    match app-id="^org.telegram.desktop$" title="^Media viewer$"
+
+    focus-ring {
+        off
+    }
+
+    open-fullscreen false
+    open-floating true
+}
+
+window-rule { // Woomer
+    match title="woomer"
+
+    open-fullscreen true
+}
