@@ -36,11 +36,28 @@ window#waybar {
     color: @text;
 }
 
+/* Modules */
+/* Gold background */
+#language
+{
+    background-color: @gold;
+    color: @base;
+}
+
+/* Black background */
+#clock,
+#tray
+{
+    margin: 0 6px;
+
+    background-color: @base;
+    color: @text;
+}
+
 /* Workspaces */
 #workspaces button {
     padding: 0 4px;
 
-    background-color: @mantle;
     color: @text;
 }
 
@@ -51,21 +68,4 @@ window#waybar {
 #workspaces button.focused {
     background-color: @gold;
     color: @base;
-}
-
-/* Modules */
-/* Gold background */
-#language
-{
-    background-color: @gold;
-    color: @base;
-}
-
-/* Black background */
-#clock 
-{
-    margin: 0 6px;
-
-    background-color: @base;
-    color: @text;
 }
