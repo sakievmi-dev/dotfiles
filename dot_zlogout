@@ -1,0 +1,2 @@
+# Clear ~/downloads
+[ -d ~/downloads ] && find ~/downloads -mindepth 1 -delete
