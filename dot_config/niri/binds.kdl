@@ -5,7 +5,6 @@ binds {
     //- Applications -//
     Mod+Return { spawn "foot"; }
     Mod+Space { spawn "fuzzel"; }
-    Mod+O { spawn "woomer"; }
 
     //- Focusing -//
     Mod+h     { focus-column-left; }
