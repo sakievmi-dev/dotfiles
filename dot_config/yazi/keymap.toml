@@ -2,9 +2,6 @@
 prepend_keymap = [
     # Jumps
 	{ on = ["g", "d"], run = "cd ~/downloads", desc = "Go ~/downloads" },
-	{ on = ["g", "t"], run = "cd ~/.dotfiles", desc = "Go ~/.dotfiles" },
-	{ on = ["g", "p"], run = "cd ~/media/pics", desc = "Go ~/media/pics" },
-	{ on = ["g", "v"], run = "cd ~/media/vids", desc = "Go ~/media/vids" },
 
 	# Smart-enter
 	{ on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
