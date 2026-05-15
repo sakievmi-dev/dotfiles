@@ -72,7 +72,7 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
     Mod+R { switch-preset-column-width; }
 
-    Mod+Q repeat=false { close-window; }
+    Mod+Ctrl+Q repeat=false { close-window; }
 
     //- Mouse -//
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
