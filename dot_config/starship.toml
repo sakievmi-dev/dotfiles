@@ -1,6 +1,8 @@
 format = """
-$username$hostname $directory$git_branch$git_status
-$character"""
+$username$hostname $directory
+$python$character"""
+
+right_format = """$status$git_branch$git_status"""
 
 [username]
 show_always = true
@@ -19,11 +21,11 @@ truncation_length = 0
 truncate_to_repo = false
 
 [git_branch]
-format = " [\\[$branch]($style)"
+format = " [$branch]($style)"
 style = "green"
 
 [git_status]
-format = "([$all_status$ahead_behind\\]]($style))"
+format = "([$all_status$ahead_behind]($style))"
 style = "green"
 conflicted = "="
 ahead = "↑"
@@ -40,3 +42,6 @@ deleted = "✘"
 [character]
 success_symbol = "[>](bold blue)"
 error_symbol = "[>](bold red)"
+
+[python]
+format = "[\\($virtualenv\\) ]($style)"
