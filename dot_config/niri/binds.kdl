@@ -86,7 +86,7 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
     //- Screenshots -//
-    Print { screenshot; }
+    Mod+Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     

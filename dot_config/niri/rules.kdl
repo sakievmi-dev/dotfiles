@@ -22,6 +22,12 @@ window-rule { // Inactive windows
     opacity 0.80
 }
 
+window-rule { // Floating
+    match title="Kdenlive"
+
+    open-floating true
+}
+
 //- Open on workspaces -//
 window-rule { // Workspace "term"
     match app-id="kitty"
