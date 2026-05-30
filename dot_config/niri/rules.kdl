@@ -89,3 +89,21 @@ window-rule { // Woomer
 
     open-fullscreen true
 }
+
+//- Layer rules -//
+
+layer-rule {
+    match namespace="waybar"
+    match namespace="launcher" // fuzzel
+    match namespace="notifications" // dunst
+
+    shadow {
+        on
+
+        softness 30
+        spread 10
+        color "#0002"
+
+        draw-behind-window false
+    }
+}
