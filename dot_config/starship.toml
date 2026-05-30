@@ -1,47 +1,29 @@
 format = """
-$username$hostname $directory
-$python$character"""
+$username$hostname $directory $python
+$character"""
 
 right_format = """$status$git_branch$git_status"""
 
 [username]
 show_always = true
 format = "[$user]($style)"
-style_user = "bold green"
+style_user = "bold yellow"
 
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style)"
-style = "bold green"
+style = "white"
 
 [directory]
-format = "[\\[$path\\]]($style)"
+format = "[$path]($style)"
 style = "white"
 truncation_length = 0
-truncate_to_repo = false
+truncate_to_repo = true
 
 [git_branch]
 format = " [$branch]($style)"
 style = "green"
 
-[git_status]
-format = "([$all_status$ahead_behind]($style))"
-style = "green"
-conflicted = "="
-ahead = "↑"
-behind = "↓"
-diverged = "↕"
-up_to_date = ""
-untracked = "?"
-stashed = "$"
-modified = "*"
-staged = "+"
-renamed = "»"
-deleted = "✘"
-
 [character]
-success_symbol = "[>](bold blue)"
+success_symbol = "[>](white)"
 error_symbol = "[>](bold red)"
-
-[python]
-format = "[\\($virtualenv\\) ]($style)"
