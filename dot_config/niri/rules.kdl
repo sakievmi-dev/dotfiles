@@ -19,7 +19,7 @@ window-rule { // Block from screen capture
 window-rule { // Inactive windows
     match is-active=false
 
-    opacity 0.80
+    opacity 0.90
 }
 
 window-rule { // Floating
@@ -73,6 +73,10 @@ window-rule { // Telegram (Media Viewer)
     match app-id="^org.telegram.desktop$" title="^Media viewer$"
 
     focus-ring {
+        off
+    }
+
+    border {
         off
     }
 

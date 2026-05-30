@@ -12,8 +12,17 @@ layout {
 
     default-column-width { proportion 0.5; }
 
-    focus-ring { 
-        off 
+    focus-ring {
+        off
+    }
+
+    border { 
+        on
+
+        width 2
+
+        active-color "#26233a"
+        inactive-color "#15141E"
     }
 
     tab-indicator {
