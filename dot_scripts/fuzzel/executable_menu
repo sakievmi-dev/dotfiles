@@ -46,7 +46,7 @@ def config():
     screenshots.add_child(
         MenuItem(
             "screenshot & annotate",
-            sh=["bash", os.path.expanduser("~/.scripts/fuzzel/annotate-screenshot")],
+            sh=["bash", "-c", "~/.scripts/annotate-screenshot"],
         )
     )
 
@@ -72,6 +72,13 @@ def config():
 
     root.add_child(screenshots)
     root.add_child(powermenu)
+
+    root.add_child(
+        MenuItem(
+            "weather report",
+            sh=["bash", "-c", "~/.scripts/weather"],
+        )
+    )
 
     return root
 

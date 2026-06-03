@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+find ~/media/pics/wallpapers -name "*.jpg" | shuf | head -n 1 | xargs awww img -t random --transition-duration 0.5 --transition-fps 180

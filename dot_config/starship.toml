@@ -25,5 +25,9 @@ format = " [$branch]($style)"
 style = "green"
 
 [character]
-success_symbol = "[>](white)"
+success_symbol = "[>](bold yellow)"
 error_symbol = "[>](bold red)"
+vimcmd_symbol = "[<](bold yellow)"
+
+[python]
+symbol = ' '

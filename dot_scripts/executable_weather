@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+response=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=48.4666&longitude=35.0407&current=temperature_2m,rain,showers,snowfall,wind_speed_10m&forecast_days=1")
+
+temp=$(echo "$response" | jq -r '.current.temperature_2m')
+temp_unit=$(echo "$response" | jq -r '.current_units.temperature_2m')
+
+wind=$(echo "$response" | jq -r '.current.wind_speed_10m')
+wind_unit=$(echo "$response" | jq -r '.current_units.wind_speed_10m')
+
+notify-send "Weather report" "Temperature: $temp$temp_unit \nWind speed: $wind$wind_unit"

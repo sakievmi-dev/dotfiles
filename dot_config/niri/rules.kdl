@@ -102,7 +102,7 @@ layer-rule {
 
         softness 30
         spread 10
-        color "#0002"
+        color "#0005"
 
         draw-behind-window false
     }
