@@ -75,6 +75,13 @@ def config():
 
     root.add_child(
         MenuItem(
+            "bluetooth",
+            sh=["bash", "-c", "bzmenu -l fuzzel"],
+        )
+    )
+
+    root.add_child(
+        MenuItem(
             "weather report",
             sh=["bash", "-c", "~/.scripts/weather"],
         )
