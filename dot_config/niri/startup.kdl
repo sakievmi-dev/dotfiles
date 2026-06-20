@@ -6,3 +6,4 @@ spawn-at-startup "awww-daemon"
 
 //- Other -//
 spawn-sh-at-startup "obs --startreplaybuffer --minimize-to-tray"
+spawn-sh-at-startup "easyeffects --hide-window"
