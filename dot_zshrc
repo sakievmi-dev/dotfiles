@@ -5,25 +5,28 @@ autoload -Uz compinit
 compinit
 
 # ===============================
-# Aliases
+# History
 # ===============================
 
-# Safe file operations
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+
+# ===============================
+# Aliases
+# ===============================
 
 # eza (File listing)
 alias l='eza --icons -lh --group-directories-first'
 alias ls='eza --icons'
 alias tree='eza --icons --tree'
 
-# Package management
-alias pkgs='pacman -Qe'
-alias cleano='sudo pacman -Rs $(pacman -Qqdt)'
-
 # Utils
-alias e='$EDITOR'
 alias v='pulsemixer'
 
 # Python
@@ -45,13 +48,6 @@ function y() {
 
     rm -f -- "$tmp"
 }
-
-# Cmus launcher
-function cmus() {
-    cd ~/mnt/hdd/Media/Music/ || return
-    command cmus "$@"
-}
-
 
 # ===============================
 # Plugins
