@@ -1,0 +1,9 @@
+[opener]
+wallpaper = [
+    { run = "awww img %s1", desc = "Set as wallpaper", for = "unix"}
+]
+
+[open]
+prepend_rules = [
+	{ mime = "image/*", use = ["open", "reveal", "wallpaper"] },
+]
