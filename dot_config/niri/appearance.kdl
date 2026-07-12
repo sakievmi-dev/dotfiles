@@ -21,7 +21,7 @@ layout {
 
         width 2
 
-        active-color "#26233a"
+        active-color "#f6c177"
         inactive-color "#15141E"
     }
 
