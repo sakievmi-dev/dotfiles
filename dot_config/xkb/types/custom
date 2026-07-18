@@ -1,0 +1,9 @@
+partial
+xkb_types "custom" {
+    type "ALT_SWITCH" {
+        modifiers = Mod1;
+        map[Mod1] = Level2;
+        level_name[Level1] = "Base";
+        level_name[Level2] = "Alt";
+    };
+};

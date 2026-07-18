@@ -1,17 +1,14 @@
 input {
     keyboard {
         xkb {
-            layout "us,ru,ua"
-            options "grp:caps_toggle,compose:ralt,ctrl:nocaps"
+            file "~/.config/keymap.xkb"
         }
     }
-
     mouse {
         accel-speed 0
         accel-profile "flat"
     }
 }
-
 gestures {
     hot-corners {
         off
