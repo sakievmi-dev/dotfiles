@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+git clone 'https://github.com/sakievmi-dev/nvim' "$HOME/.config/nvim"
+git clone 'https://github.com/sakievmi-dev/awesome' "$HOME/.config/awesome"

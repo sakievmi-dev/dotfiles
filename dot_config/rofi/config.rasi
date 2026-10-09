@@ -1,0 +1,120 @@
+@import "default"
+
+* {
+    base:           #191724;
+    surface:        #1f1d2e;
+    overlay:        #26233a;
+    muted:          #6e6a86;
+    subtle:         #908caa;
+    text:           #e0def4;
+    love:           #eb6f92;
+    gold:           #f6c177;
+    rose:           #ebbcba;
+    pine:           #31748f;
+    foam:           #9ccfd8;
+    iris:           #c4a7e7;
+    highlight-low:  #21202e;
+    highlight-med:  #403d52;
+    highlight-high: #524f67;
+
+	font: "GeistMono NFM SemiBold 8";
+    
+    bg-normal: @surface;
+    bg-active: @gold;
+    bg-urgent: @rose;
+    fg-normal: @text;
+
+}
+
+#window {
+	background-color: @surface;
+	padding: 5;
+
+    location: north;
+    anchor: north;
+    y-offset: 26px;
+
+    width: 176px;
+
+    border: 0px;
+}
+
+#mainbox {
+	padding: 1px;
+}
+
+#textbox-prompt-colon {
+	expand:     false;
+	str:        ":";
+	margin:     0px 0.3em 0em 0em;
+	text-color: @fg-normal;
+}
+
+/* Prompt */
+#prompt {
+	spacing:    0;
+	text-color: @fg-normal;
+}
+
+#entry {
+	spacing:    0;
+	text-color: @fg-normal;
+}
+
+/* Elements */
+#element {
+	padding: 1px ;
+}
+
+element normal.normal,
+element normal.urgent,
+element alternate.normal,
+element alternate.active,
+element alternate.urgent {
+    background-color: @bg-normal;
+    text-color: @fg-normal;
+}
+
+element selected.normal,
+element selected.active,
+element selected.urgent,
+element alternate.selected,
+button selected {
+    background-color: @bg-active;
+    text-color: @bg-normal;
+}
+
+
+#textbox {
+	text-color: @fg-normal;
+}
+
+#message {
+	padding:      1px ;
+}
+
+#listview {
+    border: 0px;
+	scrollbar:    false;
+}
+
+#scrollbar {
+	width:        2px ;
+	handle-width: 8px ;
+	padding:      0;
+}
+
+#inputbar {
+	spacing:    0;
+	text-color: @fg-normal;
+	padding:    1px ;
+} 
+
+#case-indicator {
+	spacing:    0;
+	text-color: @fg-normal;
+}
+
+#inputbar {
+	children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}

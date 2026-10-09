@@ -1,0 +1,11 @@
+autoload -U colors && colors
+setopt PROMPT_SUBST
+
+autoload -Uz compinit
+compinit
+
+source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/plugins.zsh"
+source "$ZDOTDIR/history.zsh"
+source "$ZDOTDIR/prompt.zsh"

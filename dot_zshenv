@@ -1,0 +1,3 @@
+[ -f "$HOME/.env" ] && . "$HOME/.env"
+
+typeset -U path PATH
