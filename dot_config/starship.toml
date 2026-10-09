@@ -1,0 +1,33 @@
+format = """
+$username$hostname $directory $python
+$character"""
+
+right_format = """$status$git_branch$git_status"""
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "bold yellow"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style)"
+style = "white"
+
+[directory]
+format = "[$path]($style)"
+style = "white"
+truncation_length = 0
+truncate_to_repo = true
+
+[git_branch]
+format = " [$branch]($style)"
+style = "green"
+
+[character]
+success_symbol = "[>](bold yellow)"
+error_symbol = "[>](bold red)"
+vimcmd_symbol = "[<](bold yellow)"
+
+[python]
+symbol = ' '
