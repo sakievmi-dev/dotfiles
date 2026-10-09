@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 ya pkg add yazi-rs/plugins:mount
 ya pkg add yazi-rs/plugins:smart-enter
-ya pkg add yazi-rs/flavors:rose-pine
+ya pkg add Mintass/rose-pine
