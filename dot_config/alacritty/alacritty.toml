@@ -1,0 +1,15 @@
+[general]
+    import = ["theme.toml"]
+    live_config_reload = true
+
+[window]
+    padding = { x = 6, y = 6 }
+    title = "Alacritty"
+    dynamic_title = false
+
+[font]
+    normal = { family = "GeistMono Nerd Font Mono", style = "Regular" }
+    bold = { family = "GeistMono Nerd Font Mono", style = "Bold" }
+    italic = { family = "GeistMono Nerd Font Mono", style = "Italic" }
+    bold_italic = { family = "GeistMono Nerd Font Mono", style = "Bold Italic" }
+    size = 12
