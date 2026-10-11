@@ -1,0 +1,7 @@
+partial
+xkb_symbols "capsalt" {
+    key <CAPS> {
+        type = "ALT_SWITCH",
+        symbols[Group1] = [ ISO_Next_Group, Caps_Lock ]
+    };
+};
