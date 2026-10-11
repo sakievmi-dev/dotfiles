@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+wget --output-document /tmp/fonts.tar.xz 'https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/GeistMono.tar.xz'
+mkdir -p ~/.local/share/fonts/GeistMono
+tar -xvf /tmp/fonts.tar.xz -C ~/.local/share/fonts/GeistMono
+fc-cache -fv
