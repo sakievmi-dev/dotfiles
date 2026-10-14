@@ -1,4 +1,4 @@
 #!/bin/sh
 xkbcomp -I$HOME/.config/xkb ~/.config/xkb/keymap $DISPLAY
-xrandr --output DP-2 --mode 1920x1080 --rate 180.00
+xrandr --output DisplayPort-1 --mode 1920x1080 --rate 180.00
 xset s off -dpms
