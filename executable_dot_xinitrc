@@ -2,4 +2,4 @@
 [ -f "$HOME/.env" ] && . "$HOME/.env"
 [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
 dbus-update-activation-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
-exec awesome
+exec dbus-run-session awesome
